@@ -15,11 +15,18 @@ int randNum(){
 }
 int main(){
 	printf("out some initial message\n");
-	if(getpid()==fork()){
-		if(getpid()==fork()){
-		printf("hello");
-		}
+	int child1=fork();
+	if(child1==0){
+		printf("Hello, I am child1:%d\n. Let me take a quick nap.",getpid());
+		sleep(abs(randNum()%16));
+		printf("Ok. I am done sleeping.");
+	}else{
+	int child2=fork();
+	if(child2==0){
+		printf("Hello again. I am child2:%d\n. Let me take a quick nap",getpid());
+		sleep(abs(randNum()%16));
+		printf("Ok. I am done sleeping.");
 	}
-	printf("%d\n",abs(randNum())%16);
+	}
 	return 0;
 }
