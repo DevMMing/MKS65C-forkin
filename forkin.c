@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <wait.h>
-#include <time.h>
 #include <unistd.h>
 #include <fcntl.h>
 
